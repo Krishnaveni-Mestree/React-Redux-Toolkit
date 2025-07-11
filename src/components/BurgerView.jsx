@@ -1,13 +1,15 @@
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { burger_order } from '../features/burger/burgerSlice';
 
 function BurgerView() {
     const burgerBuns=useSelector((state)=>state.burger.burgerBuns);
-    //console.log(burgerBuns);
+    const dispatch=useDispatch();
+    console.log(dispatch)
   return (
     <div>
       <h2>Number of Burger buns - {burgerBuns}</h2>
-      <button>Order Burger</button>
+      <button onClick={()=>dispatch(burger_order())}>Order Burger</button>
     </div>
   )
 }
