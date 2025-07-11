@@ -11,15 +11,19 @@ const burgerSlice=createSlice({
     reducers:{
         burger_order:(state)=>{
             state.burgerBuns--
+        },
+         customer_choice:(state,action)=>{
+            state.burgerBuns=state.burgerBuns-action.payload    
         }
     },
     extraReducers:(builder)=>{
         builder.addCase(pizzaOrdered,(state)=>{
             state.burgerBuns--
         })
-    }
+    },
+   
 });
 
 export default burgerSlice.reducer;
 
-export const {burger_order}=burgerSlice.actions;
+export const {burger_order,customer_choice}=burgerSlice.actions;
